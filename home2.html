@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Hospital | Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+    * { scroll-behavior: smooth; }
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      padding: 0 15px;
+      background: url('https://i.pinimg.com/736x/b8/5d/93/b85d937424a1a88c04cd594158a6fcc5.jpg') no-repeat center center/cover;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 10, 10, 0.633);
+      z-index: 0;
+    }
+
+    .hero > div {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: bold;
+      animation: slideUp 2s ease-in-out;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      animation: fadeIn 3.5s ease-in-out;
+    }
+
+    .btn-main {
+      padding: 12px 30px;
+      font-size: 1.2rem;
+      border-radius: 50px;
+      margin-top: 20px;
+      background: #28a745;
+      color: #fff;
+      border: none;
+      transition: all 0.4s ease;
+    }
+
+    .btn-main:hover {
+      background: #1e7e34;
+      transform: scale(1.1);
+    }
+
+    section {
+      padding: 80px 15px;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease-out;
+    }
+
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .feature-icon {
+      font-size: 3rem;
+      color: #28a745;
+      margin-bottom: 20px;
+      transition: transform 0.4s ease;
+    }
+
+    .feature-icon:hover {
+      transform: scale(1.2);
+    }
+
+    .footer {
+      background-color: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .footer i {
+      margin: 0 5px;
+    }
+
+    @keyframes slideUp {
+      0% { transform: translateY(100px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @media(max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvUGcVRb19dYFMiFZeTKVTFovkpVhTalDJ9A&s" alt="Hospital Logo" width="40" height="40" class="me-2">
+      Our Hospital
+    </a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#facilities">Facilities</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+        <div class="d-flex">
+            <a href="#" class="btn btn-outline-light rounded-pill me-2">Login</a>
+            
+    </div>
+  </div>
+</nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div>
+      <h1>Compassionate Care. Modern Facilities.</h1>
+      <p>Delivering excellence in healthcare with advanced treatment and trusted staff</p>
+      <a href="#facilities" class="btn btn-main">Our Services</a>
+    </div>
+  </section>
+
+  <!-- Facilities Section -->
+  <section id="facilities" class="bg-light text-center">
+    <div class="container">
+      <h2 class="mb-5 fade-up">Hospital Facilities</h2>
+      <div class="row g-4">
+        <div class="col-md-4 fade-up">
+          <i class="fas fa-microphone feature-icon"></i>
+          <h4>Voice Commands</h4>
+          <p>Use natural voice input to search, update, and manage patient records instantly.</p>
+        </div>
+        <div class="col-md-4 fade-up">
+          <i class="fas fa-notes-medical feature-icon"></i>
+          <h4>Smart Reports</h4>
+          <p>Generate and download medical summaries, discharge sheets, and progress PDFs.</p>
+        </div>
+        <div class="col-md-4 fade-up">
+          <i class="fas fa-chart-line feature-icon"></i>
+          <h4>Vitals Dashboard</h4>
+          <p>Visualize real-time vital signs using interactive charts with voice alerts.</p>
+        </div>
+        <div class="col-md-4 fade-up">
+          <i class="fas fa-ambulance feature-icon"></i>
+          <h4>24/7 Emergency</h4>
+          <p>Always open emergency care with expert staff and quick-response units.</p>
+        </div>
+        <div class="col-md-4 fade-up">
+          <i class="fas fa-procedures feature-icon"></i>
+          <h4>In-Patient Rooms</h4>
+          <p>Comfortable, clean, private rooms for rest and recovery.</p>
+        </div>
+        <div class="col-md-4 fade-up">
+          <i class="fas fa-x-ray feature-icon"></i>
+          <h4>Radiology & Imaging</h4>
+          <p>Advanced scanning: X-ray, MRI, and CT for fast diagnostics.</p>
+        </div>
+        <div class="col-md-4 fade-up">
+          <i class="fas fa-heartbeat feature-icon"></i>
+          <h4>Cardiology & ICU</h4>
+          <p>Specialized heart care with 24x7 ICU monitoring.</p>
+        </div>
+        <div class="col-md-4 fade-up">
+          <i class="fas fa-flask feature-icon"></i>
+          <h4>Lab Testing</h4>
+          <p>On-site labs with accurate and quick test reports.</p>
+        </div>
+        <div class="col-md-4 fade-up">
+          <i class="fas fa-user-md feature-icon"></i>
+          <h4>Qualified Doctors</h4>
+          <p>Our team is highly experienced across all major specialties.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="bg-light text-center">
+    <div class="container">
+      <h2 class="mb-4 fade-up">Contact Support</h2>
+      <p class="fade-up">Need help? Our support team is here 24/7. Reach out now.</p>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <form class="text-start fade-up">
+            <div class="mb-3">
+              <label for="name" class="form-label">Full Name</label>
+              <input type="text" class="form-control" id="name" placeholder="Enter your name">
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email Address</label>
+              <input type="email" class="form-control" id="email" placeholder="Enter your email">
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Your Message</label>
+              <textarea class="form-control" id="message" rows="4" placeholder="Type your message here..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-main w-100">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Our Hospital. All rights reserved.</p>
+      <p>
+        <i class="fas fa-phone-alt"></i> +91-9876543210 |
+        <i class="fas fa-envelope"></i> info@ourhospital.com
+      </p>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap + Scroll Animation -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const fadeUps = document.querySelectorAll('.fade-up');
+    const onScroll = () => {
+      fadeUps.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+          el.classList.add('show');
+        }
+      });
+    };
+    window.addEventListener('scroll', onScroll);
+    onScroll(); // trigger once
+  </script>
+  <!-- Message Sent Modal -->
+<div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title w-100" id="messageModalLabel">Success</h5>
+        <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Your message has been sent successfully!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+<rp></rp>
+</html>

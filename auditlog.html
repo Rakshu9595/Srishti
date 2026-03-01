@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Audit Logger Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #f5f8fa;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .navbar {
+      background: #6c5ce7;
+    }
+
+    .navbar-brand, .nav-link {
+      color: #fff !important;
+      font-weight: 500;
+    }
+
+    .header-section {
+      background-color: #fff;
+      padding: 60px 20px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #2c3e50;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .audit-list {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      margin: 40px auto;
+      max-width: 1000px;
+      animation: fadeIn 0.7s ease;
+    }
+
+    .list-group-item {
+      background-color: #f1f2f6;
+      color: #2f3542;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #6c5ce7;
+      color: white;
+      margin-top: 60px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">AuditLogger</a>
+        <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#auditLogs">Audit Logs</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <div class="header-section">
+    <h1>Audit Logger Dashboard</h1>
+    <p class="lead text-muted">View all user actions with complete transparency and traceability.</p>
+  </div>
+
+  <!-- LOGS SECTION -->
+  <section class="audit-list" id="auditLogs">
+    <h3 class="mb-4 text-center">Recent Audit Logs</h3>
+    <ul class="list-group" id="auditDisplay">
+      <!-- Dynamic data will be appended here -->
+    </ul>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2025 AuditLogger. All rights reserved.
+  </footer>
+
+  <!-- MOCK JS DATA FOR TESTING -->
+  <script>
+    const auditDisplay = document.getElementById("auditDisplay");
+
+    // Simulated backend data
+    const audits = [
+      {
+        action: "Deleted User",
+        performedby: "647d1c29ad45a63dbecc9f21",
+        targetModel: "User",
+        targetId: "648e1c29aa99a63bafcc3c12",
+        description: "Admin deleted user due to policy violation.",
+        ipAddress: "192.168.0.101",
+        before: { role: "user" },
+        after: { role: "removed" },
+        timestamp: new Date().toLocaleString()
+      },
+      {
+        action: "Updated Policy",
+        performedby: "647d1c29ad45a63dbecc9f21",
+        targetModel: "Policy",
+        targetId: "648e1a10aa99a63bafcc3a88",
+        description: "Policy terms updated successfully.",
+        ipAddress: "192.168.0.102",
+        before: { terms: "v1.0" },
+        after: { terms: "v2.0" },
+        timestamp: new Date().toLocaleString()
+      },
+      {
+        action: "Created Alert",
+        performedby: "647d1c29ad45a63dbecc9f21",
+        targetModel: "Alert",
+        targetId: "649e1b10aa99a63badcc7b91",
+        description: "System alert created for suspicious login.",
+        ipAddress: "192.168.0.150",
+        before: null,
+        after: { alert: "Login from Russia" },
+        timestamp: new Date().toLocaleString()
+      }
+    ];
+
+    audits.forEach(audit => {
+      const li = document.createElement("li");
+      li.className = "list-group-item";
+      li.innerHTML = `
+        <strong>Action:</strong> ${audit.action}<br>
+        <strong>User:</strong> ${audit.performedby}<br>
+        <strong>Model:</strong> ${audit.targetModel} | <strong>ID:</strong> ${audit.targetId}<br>
+        <strong>Description:</strong> ${audit.description}<br>
+        <strong>IP:</strong> ${audit.ipAddress || 'N/A'}<br>
+        <strong>Changes:</strong> Before = ${JSON.stringify(audit.before) || 'N/A'}, After = ${JSON.stringify(audit.after) || 'N/A'}<br>
+        <small><em>Logged At: ${audit.timestamp}</em></small>
+      `;
+      auditDisplay.appendChild(li);
+    });
+  </script>
+
+</body>
+</html>
